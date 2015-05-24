@@ -40,8 +40,8 @@
 
         $.ajax({
           url      : 'api',
-          dataType : 'json',
-          // dataType : 'html', // debug
+          // dataType : 'json',
+          dataType : 'html', // DEBUG
           type     : method,
           data     : {'table': table, 'drug_id': drug_id, 'title': title, 'description': description},
           success: function(data, status) {
@@ -54,6 +54,14 @@
           }
         });
       });
+
+      // Radio trigger GET method
+      $('input[name=radio]').change(function(){
+        var isChecked = $(this).prop('checked');
+        if(isChecked) {
+          $('.method-get').trigger('click');
+        }
+      })
     });
 
   // Debug
@@ -71,7 +79,7 @@
 
       <button data-action="put">PUT<br></button>
       <button data-action="post">POST<br></button>
-      <button data-action="get">GET<br></button>
+      <button data-action="get" class="method-get">GET<br></button>
       <button data-action="delete">DELETE<br></button>
     <form>
       <div>

@@ -22,8 +22,6 @@
   $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
   $method  = $_SERVER['REQUEST_METHOD'];
 
-  // echo 'count:'.isset(parse_str(file_get_contents("php://input"), $post_vars));
-
   if(isset($_GET['title']) || isset($_GET['title'])) {
     $data['drug_id']     = $_GET['drug_id'];
     $data['table']       = $_GET['table'];
@@ -59,32 +57,51 @@
   -------------------------------------------------- */
   function query($method, $data) {
     $results = array();
-    $table    = $data['table'];
+    $table   = $data['table'];
+    // $table   = 'drug'; // DEBUG
+    // echo '<strong>table</strong>: '.$table.'<br>'; // DEBUG
 
     if(strtolower($method) == 'put') {
+      // PUT
       // todo: MySQL
       $results[] = array(
         'method' => 'PUT'
      );
 
     } else if(strtolower($method) == 'get') {
-      $sql = mysql_query("select * from $table");
+      // GET
+      $sql = mysql_query("SELECT * FROM $table");
       while($row = mysql_fetch_array($sql)) {
        $results[] = $row;
       }
+
     } else if(strtolower($method) == 'post') {
+      // POST
       // todo: MySQL
       $results[] = array(
         'method' => 'POST'
      );
     } else if(strtolower($method) == 'delete') {
+      // DELETE
       // todo: MySQL
       $results[] = array(
         'method' => 'DELETE'
      );
     }
 
-    echo json_encode($results);
+    echo json_encode(utf8ize($results));
+  }
+
+  function utf8ize($d) {
+    if (is_array($d))
+        foreach ($d as $k => $v)
+            $d[$k] = utf8ize($v);
+     else if(is_object($d))
+        foreach ($d as $k => $v)
+            $d->$k = utf8ize($v);
+     else
+        return utf8_encode($d);
+    return $d;
   }
 
   /* =Debug
@@ -95,3 +112,5 @@
     echo '</pre>';
   }
 ?>
+
+
