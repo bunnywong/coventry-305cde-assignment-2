@@ -1,60 +1,69 @@
 <html>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
 <head>
-<style>
-  button {
-    width: 200px;
-    height: 80px;
-  }
-  form {
-    margin-top: 100px;
-  }
-  input {
-    height: 50px;
-    width: 300px;
-  }
-  textarea {
-    width: 300px;
-    height: 200px;
-  }
-</style>
 
-<script>
-  $( document ).ready(function() {
-    $('button').on('click', function() {
-      var base_url    = 'localhost';
-      var method      = $(this).data('action');
-      var title       = $('input[name="title"]').val();
-      var description = $('textarea[name="description"]').val();
-      var drug_id     = 138; // Dummy data
+  <style>
+    button {
+      width: 200px;
+      height: 80px;
+    }
+    form {
+      margin-top: 100px;
+    }
+    input{
+      height: 50px;
+      width: 300px;
+    }
+    input[type='radio'] {
+      height: 30px;
+      width: 30px;
+      margin-left: 50px;
+      margin-bottom: 50px;
+    }
+    textarea {
+      width: 300px;
+      height: 200px;
+    }
+  </style>
 
-      $.ajax({
-        url      : 'api',
-        dataType : 'json',
-        type     : method,
-        data     : {'drug_id': drug_id, 'title': title, 'description': description},
-        success: function(data, status) {
-          cl(data);
-            var items = [];
-            $.each( data, function( key, val ) {
-               items.push(val.title+':<br>'+ val.description+'<br><br>');
-            });
-          $('.answer-box').html(items);
-        },
-        error: function(xhr, desc, err) {
-          console.log(xhr);
-          console.log("Details: " + desc + "\nError:" + err);
-        }
+  <script>
+    $( document ).ready(function() {
+      $('button').on('click', function() {
+        var method      = $(this).data('action');
+        var title       = $('input[name="title"]').val();
+        var description = $('textarea[name="description"]').val();
+        var table       = $('input[name=radio]:checked').next('label').text().toLowerCase();
+        var drug_id     = 138;    // Dummy data
+
+        $.ajax({
+          url      : 'api',
+          dataType : 'json',
+          // dataType : 'html', // debug
+          type     : method,
+          data     : {'table': table, 'drug_id': drug_id, 'title': title, 'description': description},
+          success: function(data, status) {
+            data = JSON.stringify(data);
+            $('.answer-box').html(data);
+          },
+          error: function(xhr, desc, err) {
+            console.log(xhr);
+            console.log("Details: " + desc + "\nError:" + err);
+          }
+        });
       });
     });
-  });
 
-// Debug
-function cl(str) {
-  console.log(str);
-}
-</script>
+  // Debug
+  function cl(str) {
+    console.log(str);
+  }
+  function a(str) {
+    alert(str);
+  }
+  </script>
 </head>
 
 <body>
@@ -66,12 +75,23 @@ function cl(str) {
       <button data-action="delete">DELETE<br></button>
     <form>
       <div>
+  <div id="radio">
+    <input type="radio" id="radio1" name="radio">
+      <label for="radio1">Blog</label>
+    <input type="radio" id="radio2" name="radio" checked="checked">
+      <label for="radio2">Drug</label>
+    <input type="radio" id="radio3" name="radio">
+      <label for="radio3">Quiz</label>
+      <input type="radio" id="radio4" name="radio">
+      <label for="radio4">User</label>
+  </div>
+      </div>
+      <div>
         <input name="title" type="text" value="This is title" placeholder="Title">
       </div>
       <div>
         <textarea name="description" type="text" placeholder="Description">This is description</textarea>
       </div>
-
     </form>
 
     <div>
@@ -79,6 +99,7 @@ function cl(str) {
       <span class="answer-box">Initial text</span>
     </div>
   </div>
-</body>
 
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
 </html>

@@ -1,6 +1,7 @@
 <?php
+  /*
+  - Table of content -
 
-  /* - Table of content -
     =DB config
     =REST setup
     =DB Query
@@ -21,12 +22,16 @@
   $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
   $method  = $_SERVER['REQUEST_METHOD'];
 
+  // echo 'count:'.isset(parse_str(file_get_contents("php://input"), $post_vars));
+
   if(isset($_GET['title']) || isset($_GET['title'])) {
     $data['drug_id']     = $_GET['drug_id'];
+    $data['table']       = $_GET['table'];
     $data['title']       = $_GET['title'];
     $data['description'] = $_GET['description'];
   } else {
     parse_str(file_get_contents("php://input"), $post_vars);
+    $data['table']     = $post_vars['table'];
     $data['drug_id']     = $post_vars['drug_id'];
     $data['title']       = $post_vars['title'];
     $data['description'] = $post_vars['description'];
@@ -54,33 +59,28 @@
   -------------------------------------------------- */
   function query($method, $data) {
     $results = array();
+    $table    = $data['table'];
 
     if(strtolower($method) == 'put') {
       // todo: MySQL
       $results[] = array(
-        'title' => 'PUT title',
-        'description' => 'PUT description'
+        'method' => 'PUT'
      );
 
     } else if(strtolower($method) == 'get') {
-      $sql = mysql_query("select * from drug");
+      $sql = mysql_query("select * from $table");
       while($row = mysql_fetch_array($sql)) {
-       $results[] = array(
-          'title' => $row['title'],
-          'description' => $row['description'],
-       );
+       $results[] = $row;
       }
     } else if(strtolower($method) == 'post') {
       // todo: MySQL
       $results[] = array(
-        'title' => 'POST title',
-        'description' => 'POST description'
+        'method' => 'POST'
      );
     } else if(strtolower($method) == 'delete') {
       // todo: MySQL
       $results[] = array(
-        'title' => 'DELET title',
-        'description' => 'DELET description'
+        'method' => 'DELETE'
      );
     }
 
