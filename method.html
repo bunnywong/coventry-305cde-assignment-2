@@ -6,6 +6,9 @@
 <head>
 
   <style>
+    .debug {
+      border: 1px solid orange;
+    }
     button {
       width: 200px;
       height: 80px;
@@ -40,8 +43,8 @@
 
         $.ajax({
           url      : 'api',
-          // dataType : 'json',
-          dataType : 'html', // DEBUG
+          dataType : 'json',
+          // dataType : 'html', // DEBUG
           type     : method,
           data     : {'table': table, 'drug_id': drug_id, 'title': title, 'description': description},
           success: function(data, status) {
@@ -102,9 +105,11 @@
       </div>
     </form>
 
-    <div>
-      <span><strong>Result:<br></strong></span>
-      <span class="answer-box">Initial text</span>
+    <div class="row">
+      <div class="col-lg-12">
+        <span><strong>Result:<br></strong></span>
+        <span class="answer-box">Initial text</span>
+      </div>
     </div>
   </div>
 

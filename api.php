@@ -58,8 +58,6 @@
   function query($method, $data) {
     $results = array();
     $table   = $data['table'];
-    // $table   = 'drug'; // DEBUG
-    // echo '<strong>table</strong>: '.$table.'<br>'; // DEBUG
 
     if(strtolower($method) == 'put') {
       // PUT
@@ -79,7 +77,7 @@
       // POST
       // todo: MySQL
       $results[] = array(
-        'method' => 'POST'
+        'message' => 'confirm'
      );
     } else if(strtolower($method) == 'delete') {
       // DELETE
