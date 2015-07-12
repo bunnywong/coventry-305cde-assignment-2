@@ -1,0 +1,6 @@
+.cat-thumbnail {
+	border-radius: none;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+}
