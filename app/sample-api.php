@@ -27,19 +27,18 @@
   $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
   $method  = $_SERVER['REQUEST_METHOD'];
 
-  if(isset($_GET['table'])) {
+  if(isset($_GET['title']) || isset($_GET['title'])) {
+    $data['drug_id']     = $_GET['drug_id'];
     $data['table']       = $_GET['table'];
+    $data['title']       = $_GET['title'];
+    $data['description'] = $_GET['description'];
   } else {
     parse_str(file_get_contents("php://input"), $post_vars);
     $data['table']     = $post_vars['table'];
+    $data['drug_id']     = $post_vars['drug_id'];
+    $data['title']       = $post_vars['title'];
+    $data['description'] = $post_vars['description'];
   }
-
-  if(isset($_GET['option'])) {
-    $data['option'] = 'WHERE '.$_GET['option'];
-  } else {
-    $data['option'] = '';
-  }
-
 
   switch ($method) {
     case 'PUT':
@@ -74,8 +73,7 @@
 
     } else if(strtolower($method) == 'get') {
       // GET
-      $option = 'WHERE is_category = 1';
-      $sql = mysql_query("SELECT * FROM $table $option");
+      $sql = mysql_query("SELECT * FROM $table");
       while($row = mysql_fetch_array($sql)) {
        $results[] = $row;
       }
