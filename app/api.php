@@ -74,7 +74,12 @@
 
     } else if(strtolower($method) == 'get') {
       // GET
-      $option = 'WHERE is_category = 1';
+      if($data['option'] == '') {
+        $option = '';
+      } else {
+        $option = $data['option'];
+      }
+
       $sql = mysql_query("SELECT * FROM $table $option");
       while($row = mysql_fetch_array($sql)) {
        $results[] = $row;
