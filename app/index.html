@@ -11,10 +11,11 @@
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="//code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+	<script>var baseURL = 'localhost/_my_site/3_lab/peak/app/';</script>
 </head>
 
 <body>
-	<!-- #1 Start of first page: #one -->
+	<!-- #1 - #one ##### ##### ##### ##### ##### -->
 	<div data-role="page" id="one">
 		<div data-role="header">
 			<h1>HOME</h1>
@@ -52,10 +53,10 @@
 		</div><!-- /content -->
 	</div><!-- /page one -->
 
-	<!-- #2 Start of second page: #two  ##### ##### ##### ##### ##### -->
+	<!-- #2 - #two  ##### ##### ##### ##### ##### -->
 	<div data-role="page" id="two" data-theme="d">
 		<div data-role="header">
-			<a href="#one" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+			<a href="#four" data-direction="reverse" data-role="button" data-theme="a">Back</a>
 			<h1>Product List view</h1>
 			<a href="#one" data-direction="reverse" data-role="button" data-theme="a">Home</a>
 		</div><!-- /header -->
@@ -92,7 +93,7 @@
 		</div><!-- /content -->
 	</div><!-- /page two -->
 
-	<!-- #3 Start of second page: #three  ##### ##### ##### ##### ##### -->
+	<!-- #3 - #three  ##### ##### ##### ##### ##### -->
 	<div data-role="page" id="three" data-theme="d">
 		<div data-role="header">
 			<a href="#two" data-direction="reverse" data-role="button" data-theme="a">Back</a>
@@ -109,42 +110,107 @@
 			</div>
 			<p>Morphine can slow or stop your breathing. Never use this medicine in larger amounts, or for longer than prescribed. Do not crush, break, or open an extended-release pill. Swallow it whole to avoid exposure to a potentially fatal dose.</p>
 
-			<a href="#four" data-direction="reverse" data-role="button" data-theme="c">More Review</a>
+			<a href="#review-listview" data-direction="reverse" data-role="button" data-theme="c" data-ajax="false">All Products Review</a>
 			<div class="review-container">
-
-			<ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
-				<li style="padding: 0px;" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-first-child ui-btn-up-c">
-					<div class="ui-btn-inner ui-li">
-						<div class="ui-btn-text">
-							<a href="#four" class="ui-link-inherit">
-								<div class="ui-li-thumb cat-thumbnail" style="background-image: url(http://d.fastcompany.net/multisite_files/fastcompany/imagecache/inline-sidebar/inline/2015/02/3041578-inline-sally3.jpg)"></div>
-								<h2 class="ui-li-heading">Sally said:</h2>
-								<p class="ui-li-desc">This is awesome<respect class=""></respect></p>
-								<div class="rating">
-									<span>☆</span><span>☆</span><span>☆</span>
-								</div>
-							</a>
+				<ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+					<li style="padding: 0px;" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-first-child ui-btn-up-c">
+						<div class="ui-btn-inner ui-li">
+							<div class="ui-btn-text">
+								<a href="#review-detailview" class="ui-link-inherit">
+									<div class="ui-li-thumb cat-thumbnail" style="background-image: url(http://d.fastcompany.net/multisite_files/fastcompany/imagecache/inline-sidebar/inline/2015/02/3041578-inline-sally3.jpg)"></div>
+									<h2 class="ui-li-heading">Sally said:</h2>
+									<p class="ui-li-desc">This is awesome<respect class=""></respect></p>
+									<div class="rating">
+										<span>☆</span><span>☆</span><span>☆</span>
+									</div>
+								</a>
+							</div>
 						</div>
-					</div>
-				</li>
-				<li style="padding: 0px;" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-first-child ui-btn-up-c">
-					<div class="ui-btn-inner ui-li">
-						<div class="ui-btn-text">
-							<a href="#four" class="ui-link-inherit">
-								<div class="ui-li-thumb cat-thumbnail" style="background-image: url(https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRaGPZiVp9zhK-tG68tAqTb9_Kt-4zcvAhbkO45EVB2lpB23nICpHrhGIE)"></div>
-								<h2 class="ui-li-heading">Mickey said:</h2>
-								<p class="ui-li-desc">I never take it<respect class=""></respect></p>
-								<div class="rating">
-									<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-								</div>
-							</a>
+					</li>
+					<li style="padding: 0px;" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-first-child ui-btn-up-c">
+						<div class="ui-btn-inner ui-li">
+							<div class="ui-btn-text">
+								<a href="#review-detailview" class="ui-link-inherit">
+									<div class="ui-li-thumb cat-thumbnail" style="background-image: url(https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRaGPZiVp9zhK-tG68tAqTb9_Kt-4zcvAhbkO45EVB2lpB23nICpHrhGIE)"></div>
+									<h2 class="ui-li-heading">Mickey said:</h2>
+									<p class="ui-li-desc">I never take it<respect class=""></respect></p>
+									<div class="rating">
+										<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+									</div>
+								</a>
+							</div>
+							<span class="ui-icon ui-icon-gear ui-icon-shadow">&nbsp;</span>
 						</div>
-						<span class="ui-icon ui-icon-gear ui-icon-shadow">&nbsp;</span>
-					</div>
-				</li>
-			</ul>
+					</li>
+				</ul>
+			</div>
 		</div><!-- /content -->
 	</div><!-- /page three -->
+
+	<!-- #4 - #review-listview  ##### ##### ##### ##### ##### -->
+	<div data-role="page" id="review-listview" data-theme="d">
+		<div data-role="header">
+			<a href="#three" data-direction="reverse" data-role="button" data-theme="a">Back</a>
+			<h1>All Review</h1>
+			<a href="#one" data-direction="reverse" data-role="button" data-theme="a">Home</a>
+		</div><!-- /header -->
+
+		<div data-role="content" data-theme="d">
+			<div class="product-image" style="background-image: url(http://www.mentalhealthy.co.uk/sites/default/files/u9/bigstock_Pills_478951.jpg)"></div>
+
+			<div class="review-container">
+				<ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+					<li style="padding: 0px;" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-first-child ui-btn-up-c">
+						<div class="ui-btn-inner ui-li">
+							<div class="ui-btn-text">
+								<a href="#review-detailview" class="ui-link-inherit">
+									<div class="ui-li-thumb cat-thumbnail" style="background-image: url(http://3.bp.blogspot.com/-sWM2E8utBY4/U9jewBsmLLI/AAAAAAAAHlk/wlz7yfYktf4/s1600/sally_edward.png)"></div>
+									<h2>- Morphine</h2>
+									<h2 class="ui-li-heading">Sally said:</h2>
+									<p class="ui-li-desc">This is awesome</p>
+									<div class="rating">
+										<span>☆</span><span>☆</span><span>☆</span>
+									</div>
+								</a>
+							</div>
+						</div>
+					</li>
+					<li style="padding: 0px;" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-first-child ui-btn-up-c">
+						<div class="ui-btn-inner ui-li">
+							<div class="ui-btn-text">
+								<a href="#review-detailview" class="ui-link-inherit">
+									<div class="ui-li-thumb cat-thumbnail" style="background-image: url(https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRaGPZiVp9zhK-tG68tAqTb9_Kt-4zcvAhbkO45EVB2lpB23nICpHrhGIE)"></div>
+									<h2>- Heroin</h2>
+									<h2 class="ui-li-heading">Mickey said:</h2>
+									<p class="ui-li-desc">I never take it<respect class=""></respect></p>
+									<div class="rating">
+										<span>☆</span>
+									</div>
+								</a>
+							</div>
+							<span class="ui-icon ui-icon-gear ui-icon-shadow">&nbsp;</span>
+						</div>
+					</li>
+					<li style="padding: 0px;" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-first-child ui-btn-up-c">
+						<div class="ui-btn-inner ui-li">
+							<div class="ui-btn-text">
+								<a href="#review-detailview" class="ui-link-inherit">
+									<div class="ui-li-thumb cat-thumbnail" style="background-image: url(https://lh6.googleusercontent.com/-wQdet5xJtxw/AAAAAAAAAAI/AAAAAAAAAFo/SXULLurB4N4/photo.jpg)"></div>
+									<h2>- Coca leaves</h2>
+									<h2 class="ui-li-heading">Brown said:</h2>
+									<p class="ui-li-desc">I wanna know more about this<respect class=""></respect></p>
+									<div class="rating">
+										<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+									</div>
+								</a>
+							</div>
+							<span class="ui-icon ui-icon-gear ui-icon-shadow">&nbsp;</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div> <!-- /content -->
+	</div><!-- /review-listview -->
 
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>
