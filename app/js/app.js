@@ -3,19 +3,24 @@ loadCategories();
 /* Page Function
 -------------------------------------------------- */
 function loadCategories() {
-  var option      = 'is_category = 1';
+  var table 	= 'drug'
+  var option	= 'is_category = 1';
+  var display = '.js-categories-container';
 
+	ajax(table, option, display);
+}
+function ajax(table, option, display) {
   $.ajax({
     url      : 'api',
     dataType : 'json',
     type     : 'get',
-    data     : {'table': 'drug', 'option': option},
+    data     : {'table': table, 'option': option},
     success: function(data, status) {
       var str = '';
        $.each(data, function(index, element) {
            str += teamplateCategories(element);
         });
-       $('.js-categories-container').html(str);
+       $(display).html(str);
     },
     error: function(xhr, desc, err) {
       console.log(xhr);
