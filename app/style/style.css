@@ -4,3 +4,31 @@
 	height: 100%;
 	width: 100%;
 }
+.product-image {
+	border-radius: none;
+	background-size: cover;
+	/*min-height: 300px;*/
+	width: 100%;
+}
+.text-left {
+	text-align: left;
+}
+.block {
+	display: block;
+}
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  font-size: 20px;
+  color: lightcoral;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
