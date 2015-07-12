@@ -5,14 +5,13 @@
 3. Done
 
 ## Structure
-Categories - List view 
-|-- Product List view
-		|-- Product Detail
-				|-- Review List view
-						( Fn.: Add / Edit / Del )	
-						|-- Registration
-						|-- Login Form 
-								|-- Back to: Review List view
+Categories - List view [ #one ]
+|-- Product List view  [ #two ]
+		|-- Product Detail  [ #three ]
+		|-- Review List view
+				( Fn.: Add / Edit / Del )
+				|-- Registration
+				|-- Login Form
+						|-- Back to: Review List view
 
 
-	
