@@ -5,12 +5,15 @@
 3. Done
 
 ## Structure
+index.html
 Categories - List view [ #one ]
 |-- Product List view  [ #two ]
 		|-- Product Detail  [ #three ]
-		|-- Review List view
+		|-- Review List view [#review-listview]
 				( Fn.: Add / Edit / Del )
-				|-- Registration
+account.html
+				// 
+				|-- Registration 
 				|-- Login Form
 						|-- Back to: Review List view
 

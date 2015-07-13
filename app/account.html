@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Drug info</title>
+	<link rel="stylesheet" href="//code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+	<script src="//code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="//code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+
+	<link rel="stylesheet" href="style/style.css" />
+</head>
+
+<body>
+	<!-- #1 - #reg ##### ##### ##### ##### ##### -->
+	<div data-role="page" id="reg">
+		<div data-role="header">
+			<a href="#" data-direction="reverse" data-role="button" data-theme="a" onclick="history.go(-1);">Back</a>
+			<h1>REGISTRATION</h1>
+			<a href="index.html#one" data-role="button" data-theme="a" data-ajax="false">Home</a>
+		</div><!-- /header -->
+
+		<div data-role="content" >
+			<form method="post">
+				 <fieldset data-role="controlgroup">
+				 	<input type="text" name="name" data-mini="true" placeholder="username" />
+				 </fieldset>
+				<fieldset data-role="controlgroup">
+					<input type="password" name="password" data-mini="true"  placeholder="password" autocomplete="false"/>
+				</fieldset>
+				<button data-role="button" data-theme="a">SUBMIT</button>
+				<p>Exist member ? Click <a href="index.html" data-ajax="false">here</a></p>
+			</form>
+		</div><!-- /content -->
+	</div><!-- /page reg -->
+
+	<!-- #2 - #login  ##### ##### ##### ##### ##### -->
+	<div data-role="page" id="login" data-theme="d">
+		<div data-role="header">
+			<a href="#" data-direction="reverse" data-role="button" data-theme="a" onclick="history.go(-1);">Back</a>
+			<h1>LOGIN</h1>
+			<a href="index.html#one" data-role="button" data-theme="a" data-ajax="false">Home</a>
+		</div><!-- /header -->
+
+		<div data-role="content" data-theme="d">
+			<form method="post">
+				 <fieldset data-role="controlgroup">
+				 	<input type="text" name="name" data-mini="true" placeholder="username" />
+				 </fieldset>
+				<fieldset data-role="controlgroup">
+					<input type="password" name="password" data-mini="true"  placeholder="password" autocomplete="false"/>
+				</fieldset>
+				<button data-role="button" data-theme="a">SUBMIT</button>
+				<p>New user ? Click <a href="#reg">here</a></p>
+			</form>
+		</div><!-- /content -->
+	</div><!-- /page login -->
+
+	<!-- #3 - #frm-post-review  ##### ##### ##### ##### ##### -->
+	<div data-role="page" id="frm-post-review" data-theme="d">
+		<div data-role="header">
+			<a href="#" data-direction="reverse" data-role="button" data-theme="a" onclick="history.go(-1);">Back</a>
+			<h1>POST REVIEW</h1>
+			<a href="index.html#one" data-role="button" data-theme="a" data-ajax="false">Home</a>
+		</div><!-- /header -->
+
+		<div data-role="content" data-theme="d">
+		<h3>Hallucino Gens / Marijuana</h3>
+			<form method="post">
+			<div class="rating text-left">
+					<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+				</div>
+				 <fieldset data-role="controlgroup">
+				 	<input type="text" name="title" data-mini="true" placeholder="Title" />
+				 </fieldset>
+				<fieldset data-role="controlgroup">
+					<textarea type="text" name="description" data-mini="true"  placeholder="Description" autocomplete="false"/></textarea>
+				</fieldset>				
+				<button data-role="button" data-theme="a">SUBMIT</button>
+			</form>
+		</div><!-- /content -->
+	</div><!-- /page frm-post-review -->
+
+	<script src="js/app.js"></script>
+
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
+</html>
